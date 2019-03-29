@@ -13,6 +13,7 @@ gem "bootsnap", ">= 1.1.0", require: false
 
 gem "rails-i18n"
 gem "foreman"
+gem "devise"
 
 group :development do
   gem "web-console", ">= 3.3.0"
