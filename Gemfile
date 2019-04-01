@@ -17,7 +17,7 @@ gem "devise"
 gem "devise-i18n"
 gem 'bootstrap_sb_admin_base_v2'
 gem 'jquery-rails'
- gem "binding_of_caller"
+gem "binding_of_caller"
 
 group :development do
   gem "web-console", ">= 3.3.0"
