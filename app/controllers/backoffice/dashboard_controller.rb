@@ -1,7 +1,7 @@
 #rails g controller backoffice/dashboard index
 
 class Backoffice::DashboardController < ApplicationController
-  layout "admin"
+  layout "backoffice"
 
   def index
   end
