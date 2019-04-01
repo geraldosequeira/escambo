@@ -16,8 +16,9 @@ gem "foreman"
 gem "devise"
 gem "devise-i18n"
 gem 'bootstrap_sb_admin_base_v2'
-gem 'jquery-rails'
+gem 'rails-assets-jquery', source: 'https://rails-assets.org'
 gem "binding_of_caller"
+gem 'rails-assets-bootstrap', source: 'https://rails-assets.org'
 
 group :development do
   gem "web-console", ">= 3.3.0"
