@@ -1,6 +1,8 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
+#brew install yarn
+
 ruby "2.5.1"
 gem "rails", "~> 5.2.2"
 gem "sqlite3"
@@ -15,10 +17,7 @@ gem "rails-i18n"
 gem "foreman"
 gem "devise"
 gem "devise-i18n"
-gem 'bootstrap_sb_admin_base_v2'
-gem 'rails-assets-jquery', source: 'https://rails-assets.org'
 gem "binding_of_caller"
-gem 'rails-assets-bootstrap', source: 'https://rails-assets.org'
 
 group :development do
   gem "web-console", ">= 3.3.0"

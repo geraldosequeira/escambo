@@ -12,5 +12,6 @@
 //
 //= require rails-ujs
 //= require activestorage
-//= require jquery
+//= require jquery/dist/jquery
+//= require bootstrap/dist/js/bootstrap
 

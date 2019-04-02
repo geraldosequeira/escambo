@@ -1,7 +1,5 @@
-/*
- *= require bootstrap
-*/
+@import "bootstrap/dist/css/bootstrap.css";
 
-body {
+ body {
   padding-top: 56px;
 }
