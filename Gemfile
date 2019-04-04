@@ -31,6 +31,7 @@ group :development do
   gem "pry-rails"
   gem 'mailcatcher'
   gem 'rails-erd'
+  gem 'rb-readline'
 end
 
 group :development, :test do
