@@ -8,6 +8,7 @@
     <meta name="author" content="">
 
     <title>Escambo App</title>
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -18,35 +19,28 @@
   </head>
 
   <body id="page-top">
+
     <div id="wrapper">
-      <%= render partial: "layouts/shared/backoffice/navbar" %>
+
       <div id="content-wrapper" class="d-flex flex-column">
+
         <div id="content">
-          <%= render partial: "layouts/shared/backoffice/topbar" %>
+
           <div class="container-fluid">
 
             <%= yield %>
-          </div>
-        </div>
-        <%= render partial: "layouts/shared/backoffice/footer" %>
-      </div>
-    </div>
 
-    <a class="scroll-to-top rounded" href="#page-top">
-      <i class="fas fa-angle-up"></i>
-    </a>
-    <%= render partial: "layouts/shared/backoffice/modal" %>
+          </div>
+
+        </div>
+
+        <%= render partial: "layouts/shared/backoffice/footer" %>
+
+      </div>
+
+    </div>
 
     <%= javascript_include_tag "application" %>
     <%= javascript_include_tag "backoffice" %>
-
-    <% if notice %>
-      <script>
-        $(document).ready(function() {
-          $.notify("<%= notice %>", "success");
-        })
-      </script>
-    <% end %>
-
   </body>
 </html>

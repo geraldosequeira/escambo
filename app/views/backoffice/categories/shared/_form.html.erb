@@ -1,0 +1,18 @@
+<div class="card shadow mb-4">
+   <div class="card-header py-3">
+      <h6 class="m-0 font-weight-bold text-primary"><%= "#{action}" %></h6>
+   </div>
+
+   <div class="card-body">
+
+      <%= render partial: "shared/messages", locals: { record: @category } %>
+
+      <%= form_with(model: [:backoffice, @category], local: true) do |f|%>
+         <div class="form-group">
+            <%= f.label "Descrição" %>
+            <%= f.text_field :description, class: "form-control col-md-4" %>
+         </div>
+         <%= f.submit "Salvar", class: "btn btn-success" %>
+      <% end %>
+   </div>
+</div>
