@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+p "################################################"
 p "Cadastrando Categorias..."
 categories = [
   "Animais e acessórios",
@@ -24,3 +25,14 @@ categories.each do |description|
   Category.find_or_create_by( description: description )
 end
 p "...[OK!]"
+
+p "################################################"
+p "Cadastrando Administrador padrão"
+Admin.create!(
+           email: "gcm.sequeira@gmail.com",
+           name: "Geraldo Sequeira",
+           password: "teste123",
+           password_confirmation: "teste123"
+            )
+p "...[OK!]"
+p "################################################"

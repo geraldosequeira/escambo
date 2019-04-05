@@ -1,2 +1,6 @@
 @import "fontawesome-free/css/all.css";
 @import "sb-admin-2.css";
+
+ .btn-add {
+  margin-left: 820px
+}

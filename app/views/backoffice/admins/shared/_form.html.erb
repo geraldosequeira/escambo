@@ -1,0 +1,34 @@
+<div class="card shadow mb-4">
+   <div class="card-header py-3">
+      <h6 class="m-0 font-weight-bold text-primary"><%= "#{action}" %></h6>
+   </div>
+
+   <div class="card-body">
+      <%= render partial: "shared/messages", locals: { record: @admin } %>
+
+      <%= form_with(model: [:backoffice, @admin], local: true ) do |f| %>
+
+        <div class="form-group">
+          <%= f.label "Nome" %>
+          <%= f.text_field :name, class: "form-control col-md-4" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label "E-mail" %>
+          <%= f.text_field :email, class: "form-control col-md-4" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label "Senha" %>
+          <%= f.text_field :password, class: "form-control col-md-4"%>
+        </div>
+
+        <div class="form-group">
+          <%= f.label "Confirmação" %>
+          <%= f.text_field :password_confirmations, class: "form-control col-md-4" %>
+        </div>
+
+        <%= f.submit "Salvar", class: "btn btn-success" %>
+      <% end %>
+   </div>
+</div>

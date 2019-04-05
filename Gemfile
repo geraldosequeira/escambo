@@ -18,6 +18,8 @@ gem "foreman"
 gem "devise"
 gem "devise-i18n"
 gem "binding_of_caller"
+gem 'faker'
+gem 'data-confirm-modal'
 
 group :development do
   gem "web-console", ">= 3.3.0"
