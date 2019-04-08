@@ -1,5 +1,9 @@
 class ApplicationController < ActionController::Base
+  include Pundit
+
   layout :layout_by_resource
+
+  rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
   protected
 
@@ -9,5 +13,10 @@ class ApplicationController < ActionController::Base
       else
         "application"
       end
+    end
+
+    def user_not_authorized
+      flash[:alert] = "Você não tem permissão."
+      redirect_to request.referrer || root_path
     end
 end

@@ -3,8 +3,14 @@
    <div class="card-header py-3">
      <h6 class="m-0 font-weight-bold text-primary">
       <%= t("messages.listing", model: @admins.model_name.human(count: @admins.count)) %>
-      <%= link_to new_backoffice_admin_path, class: "btn btn-success btn-circle float-right" do %>
-        <i class="fas fa-plus"></i>
+      <% if policy(@admins).new? %>
+        <%= link_to new_backoffice_admin_path, class: "btn btn-success btn-circle float-right" do %>
+          <i class="fas fa-plus"></i>
+        <% end %>
+      <% else %>
+        <span class="btn btn-success btn-circle disabled float-right">
+            <i class="fas fa-plus"></i>
+        </span>
       <% end %>
      </h6>
    </div>

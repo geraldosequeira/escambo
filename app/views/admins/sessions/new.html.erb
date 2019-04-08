@@ -64,3 +64,11 @@
     </div>
   </div>
 </div>
+
+<% flash.each do |key, value| %>
+  <script>
+        $(document).ready(function() {
+          $.notify("<%= value %>", "info");
+        })
+      </script>
+<% end %>

@@ -27,7 +27,6 @@
         <div id="content">
           <%= render partial: "layouts/shared/backoffice/topbar" %>
           <div class="container-fluid">
-
             <%= yield %>
           </div>
         </div>
@@ -38,12 +37,19 @@
     <a class="scroll-to-top rounded" href="#page-top">
       <i class="fas fa-angle-up"></i>
     </a>
+
     <%= render partial: "layouts/shared/backoffice/modal" %>
 
     <% if notice %>
       <script>
         $(document).ready(function() {
           $.notify("<%= notice %>", "success");
+        })
+      </script>
+    <% else %>
+      <script>
+        $(document).ready(function() {
+          $.notify("<%= alert %>", "error");
         })
       </script>
     <% end %>
