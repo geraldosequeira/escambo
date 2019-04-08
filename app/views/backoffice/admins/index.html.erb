@@ -2,7 +2,7 @@
 
    <div class="card-header py-3">
      <h6 class="m-0 font-weight-bold text-primary">
-      Administradores
+      <%= t("messages.listing", model: @admins.model_name.human(count: @admins.count)) %>
       <%= link_to new_backoffice_admin_path, class: "btn btn-success btn-circle float-right" do %>
         <i class="fas fa-plus"></i>
       <% end %>
@@ -24,21 +24,26 @@
                              rowspan="1" colspan="1" aria-sort="ascending"
                              aria-label="Name: activate to sort column descending"
                              style="width: 141px;">
-                          E-mail
+                          <%= @admins.model.human_attribute_name("name") %>
+                        </th>
+                        <th  class="sorting_asc" tabindex="0" aria-controls="dataTable"
+                             rowspan="1" colspan="1" aria-sort="ascending"
+                             aria-label="Name: activate to sort column descending"
+                             style="width: 141px;">
+                          <%= @admins.model.human_attribute_name("email") %>
                         </th>
 
                         <th  class="sorting_asc" tabindex="0" aria-controls="dataTable"
                              rowspan="1" colspan="1" aria-sort="ascending"
                              aria-label="Name: activate to sort column descending"
                              style="width: 141px;">
-                          Data Criação
+                          <%= @admins.model.human_attribute_name("role") %>
                         </th>
 
                         <th  class="sorting" tabindex="0" aria-controls="dataTable"
                              rowspan="1" colspan="1"
                              aria-label="Position: activate to sort column ascending"
                              style="width: 50px; text-align: center;">
-                          Opcões
                         </th>
                       </tr>
                     </thead>
@@ -46,12 +51,19 @@
                     <tbody>
                       <% @admins.each do |admin| %>
                         <tr role="row" class="odd">
+
+                          <td class="sorting_1"><%= admin.name %></td>
+
                           <td class="sorting_1"> <%= admin.email %> </td>
-                          <td class="sorting_1"> <%= l(admin.created_at, format: :short) %> </td>
+
+                          <td class="sorting_1"><%= admin.role_i18n %></td>
+
                           <td style="text-align: center;">
-                            <%= link_to edit_backoffice_admin_path(admin), class: "btn btn-info btn-circle btn-sm" do %>
+                            <%= link_to edit_backoffice_admin_path(admin),
+                                        class: "btn btn-info btn-circle btn-sm" do %>
                                 <i class="fas fa-edit"></i>
                             <% end %>
+
                             <% if admin.id == current_admin.id %>
                               <span class = "btn btn-warning btn-circle btn-sm  disabled">
                                   <i class="fas fa-times"></i>
@@ -60,11 +72,13 @@
                               <%= link_to backoffice_admin_path(admin),
                                   method: :DELETE,
                                   class: "btn btn-warning btn-circle btn-sm fooo",
-                                  data: {confirm: "Deseja exluir o ADM <strong> #{admin.name} </strong> ?"} do %>
+                                  data: {confirm: t("messages.confirm_with", item: admin.name)} do %>
                                 <i class="fas fa-times"></i>
                               <% end %>
                             <% end %>
+
                           </td>
+
                         </tr>
                       <% end %>
                     </tbody>

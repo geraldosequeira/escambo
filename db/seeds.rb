@@ -32,7 +32,8 @@ Admin.create!(
            email: "gcm.sequeira@gmail.com",
            name: "Geraldo Sequeira",
            password: "teste123",
-           password_confirmation: "teste123"
+           password_confirmation: "teste123",
+           role: 0
             )
 p "...[OK!]"
 p "################################################"
