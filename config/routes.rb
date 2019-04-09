@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     #get 'admins', to: "admins#index"
     resources :admins, except: [:show]
     resources :categories, except: [:show, :destroy]
+    resources :send_messages, only: [:edit, :create]
   end
 
   namespace :site do
