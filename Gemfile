@@ -33,7 +33,6 @@ group :development do
   gem "better_errors"
   gem "byebug"
   gem "pry-rails"
-  gem 'mailcatcher'
   gem 'rails-erd'
   gem 'rb-readline'
 end

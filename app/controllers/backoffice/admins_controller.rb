@@ -29,6 +29,7 @@ class Backoffice::AdminsController < BackofficeController
 
   def update
     if @admin.update(admin_params)
+      AdminMailer.update_mailer(current_admin, @admin).deliver_now
       redirect_to backoffice_admins_path, notice: I18n.t('messages.updated_with', item: @admin.name)
     else
       render :edit
