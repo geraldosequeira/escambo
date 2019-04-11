@@ -6,8 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-p "################################################"
-p "Cadastrando Categorias..."
+p "==============================================="
+p "Create Categories..."
 categories = [
   "Animais e acessórios",
   "Esportes",
@@ -26,8 +26,8 @@ categories.each do |description|
 end
 p "...[OK!]"
 
-p "################################################"
-p "Cadastrando Administrador padrão"
+p "==============================================="
+p "Create Adminstrator default"
 Admin.create!(
            email: "gcm.sequeira@gmail.com",
            name: "Geraldo Sequeira",
@@ -36,4 +36,3 @@ Admin.create!(
            role: 0
             )
 p "...[OK!]"
-p "################################################"

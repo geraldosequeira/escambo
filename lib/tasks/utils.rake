@@ -1,7 +1,20 @@
 namespace :utils do
 
+  desc "Setup Development"
+  task setup: :environment do
+    puts "Executando o setup para desenvolvimento..."
+    puts "#{%x(rake db:drop)}"
+    puts "#{%x(rake db:create)}"
+    puts %x(rake db:migrate)
+    puts %x(rake db:seed)
+    puts %x(rake utils:generate_admins)
+    puts %x(rake utils:generate_members)
+    puts %x(rake utils:generate_ads)
+  end
+
   desc "Create admins Faker"
   task generate_admins: :environment do
+    p "==============================================="
     p "Create admins faker"
       10.times do
         Admin.create!(
@@ -15,9 +28,10 @@ namespace :utils do
     p "..[OK]"
   end
 
-  desc "Create Members Fake"
+  desc "Create Members Fake" Members
   task generate_members: :environment do
-    puts "Create Memebers Fakes..."
+    p "============================================="
+    puts "Create Members Fakes..."
 
     50.times do
       Member.create!(
@@ -32,6 +46,7 @@ namespace :utils do
 
   desc "Create ADS Faker"
   task generate_ads: :environment do
+    p "==============================================="
     p "Create ADS faker"
       10.times do
         Ad.create!(
