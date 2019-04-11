@@ -21,6 +21,7 @@ module Escambo
 
     config.i18n.default_locale = "pt-BR"
     config.time_zone = "Brasilia"
+    Money.locale_backend = :i18n
 
     config.generators.system_tests = nil
   end

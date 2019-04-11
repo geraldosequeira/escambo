@@ -41,16 +41,10 @@
     <%= render partial: "layouts/shared/backoffice/modal" %>
 
     <% if notice %>
-      <script>
-        $(document).ready(function() {
-          $.notify("<%= notice %>", "success");
-        })
-      </script>
+      <%= javascript_tag "$.notify('#{notice}', 'success')" %>
     <% else %>
       <script>
-        $(document).ready(function() {
-          $.notify("<%= alert %>", "error");
-        })
+        $.notify("<%= alert %>", "error");
       </script>
     <% end %>
   </body>

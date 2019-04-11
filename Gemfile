@@ -22,6 +22,8 @@ gem "faker"
 gem "data-confirm-modal"
 gem "enum_help"
 gem "pundit"
+gem "money-rails" #$ rails g money_rails:initializer
+gem "paperclip", "~> 6.0.0" #$ rails g paperclip ad picture
 
 group :development do
   gem "web-console", ">= 3.3.0"
@@ -35,6 +37,7 @@ group :development do
   gem "pry-rails"
   gem 'rails-erd'
   gem 'rb-readline'
+  gem 'lerolero_generator'
 end
 
 group :development, :test do

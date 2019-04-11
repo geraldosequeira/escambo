@@ -1,5 +1,7 @@
 class AdminPolicy < ApplicationPolicy
 
+  #rails g pundit:policy Admin
+
   def new?
     user.full_access?
   end

@@ -1,5 +1,6 @@
 class Admin < ApplicationRecord
 
+  validates_presence_of :name
 =begin Trabalhando com Enuns 1
   enum role: { :full_access, :restricted_access }
   enum role: [ :full_access => 0, :restricted_access => 1]
