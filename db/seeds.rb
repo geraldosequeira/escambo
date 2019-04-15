@@ -36,3 +36,13 @@ Admin.create!(
            role: 0
             )
 p "...[OK!]"
+
+
+p "==============================================="
+p "Create Member default"
+Member.create!(
+  email: "membro@membro.com",
+  password: "123456",
+  password_confirmation: "123456"
+)
+p "...[OK!]"

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <title>EscamboAPP</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    "application" %>
+    <%= stylesheet_link_tag    "site", media: "all" %>
+
+    <%= javascript_include_tag "application" %>
+    <%= javascript_include_tag "site" %>
+  </head>
+
+  <body>
+    <%= render partial: "layouts/shared/site/navigation" %>
+    <%= yield %>
+  </body>
+</html>

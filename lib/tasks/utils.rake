@@ -28,7 +28,7 @@ namespace :utils do
     p "..[OK]"
   end
 
-  desc "Create Members Fake" Members
+  desc "Create Members Fake"
   task generate_members: :environment do
     p "============================================="
     puts "Create Members Fakes..."
