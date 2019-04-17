@@ -8,13 +8,58 @@
 
     <%= stylesheet_link_tag    "application" %>
     <%= stylesheet_link_tag    "site", media: "all" %>
+    <%= stylesheet_link_tag    "site/profile", media: "all" %>
 
     <%= javascript_include_tag "application" %>
     <%= javascript_include_tag "site" %>
+    <%= javascript_include_tag "site/profile" %>
   </head>
 
   <body>
     <%= render partial: "layouts/shared/site/navigation" %>
-    <%= yield %>
+    <div id="wrapper">
+      <div id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+
+          <li class="sidebar-brand">
+            <a href="#">
+              Start Bootstrap
+            </a>
+          </li>
+
+          <li>
+            <%= link_to "Dashboard", site_profile_dashboard_index_path %>
+          </li>
+
+          <li>
+            <%= link_to "Meus anúncios", site_profile_ads_path %>
+          </li>
+
+          <li>
+            <%= link_to "Criar anúncio", new_site_profile_ad_path %>
+          </li>
+
+        </ul>
+      </div>
+
+      <div id="page-content-wrapper">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-lg-12">
+              <%= yield %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <% if notice %>
+      <%= javascript_tag "$.notify('#{notice}', 'success')" %>
+    <% else %>
+      <script>
+        $.notify("<%= alert %>", "error");
+      </script>
+    <% end %>
+
   </body>
 </html>
