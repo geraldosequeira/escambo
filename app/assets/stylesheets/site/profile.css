@@ -1,4 +1,12 @@
+/*
+*= require jquery-ui/datepicker
+*/
+
 @import "../fontawesome-free/css/all.css";
+
+/*
+*= jquery-ui/widgets/datepicker
+*/
 
  body {
     overflow-x: hidden;
