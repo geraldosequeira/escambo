@@ -2,7 +2,11 @@ class Ad < ApplicationRecord
   belongs_to :category
   belongs_to :member
 
-  validates_presence_of :id, :title, :category_id, :price, :description, :picture
+  validates_presence_of  :picture
+
+  validates :title, :description, :category, presence: true
+  validates :picture, :finish_date, presence: true
+  validates :price, numericality: { greater_than: 0 }
 
   monetize :price_cents
 
