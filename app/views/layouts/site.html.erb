@@ -8,14 +8,14 @@
 
     <%= stylesheet_link_tag    "application" %>
     <%= stylesheet_link_tag    "site", media: "all" %>
-
-    <%= javascript_include_tag "application" %>
-    <%= javascript_include_tag "site" %>
   </head>
 
   <body>
     <%= render partial: "layouts/shared/site/navigation" %>
     <%= yield %>
     <%= render partial: "layouts/shared/site/footer" %>
+
+    <%= javascript_include_tag "application" %>
+    <%= javascript_include_tag "site" %>
   </body>
 </html>

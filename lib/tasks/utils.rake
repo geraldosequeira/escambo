@@ -17,7 +17,7 @@ namespace :dev do
 
   desc "Create admins Faker"
   task generate_admins: :environment do
-    p "==============================================="
+    p "=" * 50
     p "Create admins faker"
       10.times do
         Admin.create!(
@@ -33,7 +33,7 @@ namespace :dev do
 
   desc "Create Members Fake"
   task generate_members: :environment do
-    p "============================================="
+    p "=" * 50
     puts "Create Members Fakes..."
 
     50.times do
@@ -49,7 +49,7 @@ namespace :dev do
 
   desc "Create ADS Faker"
   task generate_ads: :environment do
-    p "==============================================="
+    p "=" * 50
 
     5.times do
       Ad.create!(
@@ -58,6 +58,7 @@ namespace :dev do
           member: Member.first,
           category: Category.all.sample,
           price: "#{Random.rand(500)},#{99}",
+          finish_date: Date.today + Random.rand(30),
           picture: File.new(Rails.root.join('public', 'template', 'images-for-ads', "#{Random.rand(9)}.jpg"), 'r')
         )
     end
@@ -70,6 +71,7 @@ namespace :dev do
           member: Member.all.sample,
           category: Category.all.sample,
           price: "#{Random.rand(500)},#{99}",
+          finish_date: Date.today + Random.rand(10),
           picture: File.new(Rails.root.join('public', 'template', 'images-for-ads', "#{Random.rand(9)}.jpg"), 'r')
         )
       end
