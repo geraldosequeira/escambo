@@ -22,6 +22,6 @@ Rails.application.routes.draw do
 
   devise_for :admins, :skip => :registration
 
-  devise_for :members
+  devise_for :members, controllers: { sessions: "members/sessions"}
 
 end
