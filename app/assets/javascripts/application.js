@@ -15,3 +15,14 @@
 //= require jquery/dist/jquery
 //= require bootstrap/dist/js/bootstrap
 //= require bootstrap-notify/bootstrap-notify
+
+$(document).on('ajax:beforeSend', function(){
+  $('#global-spin').fadeIn('slow');
+});
+
+$(document).on('ajax:send', function(){
+  $('#global-spin').fadeOut('slow');
+  $('html, body').animate({
+    scrollTop: $('#top').offset().top
+  }, 0);
+});

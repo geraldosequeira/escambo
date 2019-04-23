@@ -10,7 +10,9 @@
     <%= stylesheet_link_tag    "site", media: "all" %>
   </head>
 
-  <body>
+  <body id="top">
+    <div id="global-spin" class="loading" style="display: none" >Loading&#8230;</div>
+
     <%= render partial: "layouts/shared/site/navigation" %>
     <%= yield %>
     <%= render partial: "layouts/shared/site/footer" %>

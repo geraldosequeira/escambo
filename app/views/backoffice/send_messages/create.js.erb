@@ -7,5 +7,18 @@ $(function(){
   $('#message-text').val('');
 
   // Show Message
-  $.notify('<%= @notify_message%>', "<%= @notify_flag %>")
+  //$.notify("<%= @notify_message%>", "<%= @notify_flag %>")
+  $.notify(
+         {
+            message: "<%= @notify_message %>"
+         },
+         {
+            type: "<%= @notify_flag %>",
+            placement:{
+              from: 'top',
+              align: 'center'
+            }
+          }
+    );
+
 });
