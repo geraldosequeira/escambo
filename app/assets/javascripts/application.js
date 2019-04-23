@@ -14,4 +14,4 @@
 //= require activestorage
 //= require jquery/dist/jquery
 //= require bootstrap/dist/js/bootstrap
-//= require notify
+//= require bootstrap-notify/bootstrap-notify

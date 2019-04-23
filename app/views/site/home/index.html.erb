@@ -49,12 +49,12 @@
           <% @ads.each do |ad| %>
             <div class="col-lg-4 col-md-6 mb-4">
               <div class="card h-100">
-                <a href="#">
+                <%= link_to site_ad_detail_path(ad) do %>
                   <%= image_tag ad.picture.url(:medium), class: "card-img-top" %>
-                </a>
+                <% end %>
                 <div class="card-body">
                   <h4 class="card-title">
-                    <a href="#"><%= ad.title.truncate(20) %></a>
+                    <%= link_to ad.title.truncate(20) , site_ad_detail_path(ad) %>
                   </h4>
                   <h5>
                     <%= humanized_money_with_symbol(ad.price) %>

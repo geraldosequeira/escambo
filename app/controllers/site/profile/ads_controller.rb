@@ -13,7 +13,7 @@ class Site::Profile::AdsController < Site::ProfileController
 
   def update
     if @ad.update(params_ad)
-      redirect_to site_profile_ads_path, notice: "Cadastrado"
+      redirect_to site_profile_ads_path, notice: I18n.t("messages.updated_with", item: @ad.title)
     else
       render :edit, flash[:alert] = "Erros"
     end
@@ -28,7 +28,7 @@ class Site::Profile::AdsController < Site::ProfileController
     @ad.member = current_member
 
     if @ad.save
-      redirect_to site_profile_ads_path, notice: "Cadastrado com sucesso"
+      redirect_to site_profile_ads_path, notice: I18n.t("messages.created_with", item: @ad.title)
     else
       render :new
     end
