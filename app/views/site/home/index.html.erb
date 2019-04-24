@@ -5,7 +5,7 @@
       <h4 class="my-4">Categorias</h4>
       <div class="list-group">
         <% @categories.each do |category| %>
-          <a href="#" class="list-group-item"><%= category.description %></a>
+          <%= link_to "#{category.description} (#{category.ads_count})", root_path, class: "list-group-item"%>
         <% end %>
       </div>
     </div>
