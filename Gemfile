@@ -25,6 +25,8 @@ gem "pundit"
 gem "money-rails" #$ rails g money_rails:initializer
 gem "paperclip", "~> 6.0.0" #$ rails g paperclip ad picture
 gem "jquery-ui-rails"
+gem "redcarpet"
+gem "doctor_ipsum"
 
 group :development do
   gem "web-console", ">= 3.3.0"

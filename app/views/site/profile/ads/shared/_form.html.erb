@@ -42,6 +42,23 @@
       <%= form.text_area :description, class: "form-control col-md-12", rows: 10 %>
     </div>
 
+    <div class="form-group card shadow mb-6">
+      <!-- Card Header - Accordion -->
+      <a href="#collapseCardExample" class="d-block card-header py-3"
+         data-toggle="collapse" role="button"
+         aria-expanded="true"
+         aria-controls="collapseCardExample">
+
+        <h8 class="m-0 font-weight-bold text-secondary text-muted">Pré-Visualização</h8>
+      </a>
+      <!-- Card Content - Collapse -->
+      <div class="collapse show" id="collapseCardExample" style="">
+        <div class="card-body">
+          <%= md_to_html @ad.description %>
+        </div>
+      </div>
+    </div>
+
     <div class="form-group">
       <%= form.label :finish_date %>
       <%= form.text_field :finish_date, class: "form-control col-md-3 datepicker",

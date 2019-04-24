@@ -24,5 +24,5 @@ $(document).on('ajax:send', function(){
   $('#global-spin').fadeOut('slow');
   $('html, body').animate({
     scrollTop: $('#top').offset().top
-  }, 0);
+  }, 1000);
 });

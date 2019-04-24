@@ -12,6 +12,7 @@ namespace :dev do
     puts %x(rake dev:generate_admins)
     puts %x(rake dev:generate_members)
     puts "Deleting images olds of ADS #{%x(rm -rf #{images_path})}"
+    puts "..[OK]"
     puts %x(rake dev:generate_ads)
   end
 
@@ -51,10 +52,14 @@ namespace :dev do
   task generate_ads: :environment do
     p "=" * 50
 
+    def markdown_fake
+      %x(ruby -e "require 'doctor_ipsum'; puts DoctorIpsum::Markdown.entry ")
+    end
+
     5.times do
       Ad.create!(
           title: Faker::Lorem.sentence(1),
-          description: LeroleroGenerator.paragraph([2,3].sample),
+          description: markdown_fake,
           member: Member.first,
           category: Category.all.sample,
           price: "#{Random.rand(500)},#{99}",
@@ -67,7 +72,7 @@ namespace :dev do
       10.times do
         Ad.create!(
           title: Faker::Lorem.sentence(1),
-          description: LeroleroGenerator.paragraph([2,3].sample),
+          description: markdown_fake,
           member: Member.all.sample,
           category: Category.all.sample,
           price: "#{Random.rand(500)},#{99}",
