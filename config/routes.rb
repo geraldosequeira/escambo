@@ -19,6 +19,7 @@ Rails.application.routes.draw do
     end
 
     resources :ad_detail, only: [:show]
+    resources :category, only: [:show]
 
   end
 

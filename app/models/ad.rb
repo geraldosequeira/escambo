@@ -15,6 +15,7 @@ class Ad < ApplicationRecord
 
   scope :descending_order, ->(quantity = 10) { limit(quantity).order(created_at: :desc) }
   scope :find_by_member, ->(member) { member.ads }
+  scope :where_category, ->(id) { where(category: id) }
 
   #rake paperclip:refresh  CLASS=Ad
   has_attached_file :picture,

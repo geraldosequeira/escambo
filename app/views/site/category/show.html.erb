@@ -1,11 +1,19 @@
 <div class="container">
   <div class="row">
     <%= render partial: "site/shared/sidebar" %>
+
     <div class="col-lg-9" id="home-detail">
-      <%= render partial: "site/shared/carousel" %>
+
+      <div class="card mb-4 my-4">
+        <div class="card-header">
+          <%= @category.description %>
+        </div>
+      </div>
+
       <div class="row">
         <%= render partial: "site/shared/ads" %>
       </div>
+
     </div>
   </div>
 </div>

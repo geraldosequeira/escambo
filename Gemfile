@@ -27,6 +27,7 @@ gem "paperclip", "~> 6.0.0" #$ rails g paperclip ad picture
 gem "jquery-ui-rails"
 gem "redcarpet"
 gem "doctor_ipsum"
+gem "friendly_id"
 
 group :development do
   gem "web-console", ">= 3.3.0"
