@@ -37,7 +37,7 @@ class Site::Profile::AdsController < Site::ProfileController
   private
 
   def set_ad
-    @ad = Ad.find(params[:id])
+    @ad = Ad.friendly.find(params[:id])
   end
 
   def params_ad

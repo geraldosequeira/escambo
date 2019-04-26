@@ -1,5 +1,8 @@
 class Ad < ApplicationRecord
 
+  extend FriendlyId
+  friendly_id :title, use: :slugged
+
   before_save :md_to_hml
 
   belongs_to :category, counter_cache: true
