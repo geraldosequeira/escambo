@@ -7,7 +7,7 @@
 
         <div class="card-body">
           <h4 class="card-title">
-            <%= link_to ad.title.truncate(20) , site_ad_detail_path(ad), remote: true %>
+            <%= link_to ad.title.truncate(20), site_ad_detail_path(ad), id: "ad-#{ad.id}", remote: true %>
           </h4>
           <h5>
             <%= humanized_money_with_symbol(ad.price) %>

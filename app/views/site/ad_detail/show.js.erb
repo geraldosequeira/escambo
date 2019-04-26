@@ -1,3 +1,14 @@
 $(function(){
+  window.history.pushState(
+    {url: "<%= site_ad_detail_path(@ad) %>"},
+    "",
+    "<%= site_ad_detail_path(@ad) %>"
+  );
+
+  $(window).bind("popstate", function(e) {
+    $('#top').load(e.currentTarget.location.href);
+  });
+
   $("#home-detail").html("<%= j render partial: 'site/ad_detail/ad' %>");
+
 });
