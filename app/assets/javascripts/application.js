@@ -21,7 +21,9 @@ $(document).on('ajax:beforeSend', function(){
 });
 
 $(document).on('ajax:send', function(){
+
   $('#global-spin').fadeOut('slow');
+
   $('html, body').animate({
     scrollTop: $('#top').offset().top
   }, 1000);

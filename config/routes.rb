@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     resources :admins, except: [:show]
     resources :categories, except: [:show, :destroy]
     resources :send_messages, only: [:edit, :create]
+    resources :diagrams, only: [:index]
   end
 
   namespace :site do
@@ -22,7 +23,6 @@ Rails.application.routes.draw do
     resources :category, only: [:show]
 
     get "search", to: "search#ads"
-
   end
 
   devise_for :admins, :skip => :registration

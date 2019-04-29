@@ -37,27 +37,29 @@
     <% end %>
   </li>
 
-  <!-- Nav Item - Tables -->
-  <li class="nav-item">
-    <a class="nav-link" href="tables.html">
-      <i class="fas fa-fw fa-table"></i>
-      <span>Tables</span></a>
-  </li>
+  <% if Rails.env == "development" %>
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+        <i class="fas fa-fw fa-cog"></i>
+        <span>Development</span>
+      </a>
+      <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div class="bg-white py-2 collapse-inner rounded">
+          <h6 class="collapse-header">Templates:</h6>
+          <a class="collapse-item" target="_blank"
+                 href="http://localhost:3000/template/home/index.html">Home</a>
+          <a class="collapse-item" target="_blank"
+                 href="http://localhost:3000/template/sbadmin2/index.html">Backoffice</a>
+          <h6 class="collapse-header">Base de dados:</h6>
 
-  <!-- Nav Item - Pages Collapse Menu -->
-  <li class="nav-item">
-    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-      <i class="fas fa-fw fa-cog"></i>
-      <span>Components</span>
-    </a>
-    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-      <div class="bg-white py-2 collapse-inner rounded">
-        <h6 class="collapse-header">Custom Components:</h6>
-        <a class="collapse-item" href="buttons.html">Buttons</a>
-        <a class="collapse-item" href="cards.html">Cards</a>
+          <%= link_to backoffice_diagrams_path, class: "collapse-item", remote: true do  %>
+            <i class="fas fa-database" ></i>
+            <span>Diagrama ER</span>
+          <% end %>
+        </div>
       </div>
-    </div>
-  </li>
+    </li>
+  <% end %>
 
   <!-- Divider -->
   <hr class="sidebar-divider d-none d-md-block">

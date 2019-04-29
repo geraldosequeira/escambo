@@ -30,6 +30,7 @@ gem "doctor_ipsum"
 gem "friendly_id"
 gem "kaminari"
 gem "kaminari-i18n"
+gem "rails-erd"
 
 group :development do
   gem "web-console", ">= 3.3.0"

@@ -18,12 +18,16 @@
   </head>
 
   <body id="page-top">
+    <div id="top"></div>
+
+    <div id="global-spin" class="loading" style="display: none" >Loading&#8230;</div>
+
     <div id="wrapper">
       <%= render partial: "layouts/shared/backoffice/navbar" %>
       <div id="content-wrapper" class="d-flex flex-column">
         <div id="content">
           <%= render partial: "layouts/shared/backoffice/topbar" %>
-          <div class="container-fluid">
+          <div class="container-fluid" id="home-detail">
             <%= yield %>
           </div>
         </div>
