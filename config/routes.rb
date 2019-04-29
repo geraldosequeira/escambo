@@ -21,6 +21,8 @@ Rails.application.routes.draw do
     resources :ad_detail, only: [:show]
     resources :category, only: [:show]
 
+    get "search", to: "search#ads"
+
   end
 
   devise_for :admins, :skip => :registration

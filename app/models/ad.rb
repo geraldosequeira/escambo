@@ -1,6 +1,9 @@
 class Ad < ApplicationRecord
 
   extend FriendlyId
+
+  PER_PAGE = 6
+
   friendly_id :title, use: :slugged
 
   before_save :md_to_hml
@@ -16,9 +19,19 @@ class Ad < ApplicationRecord
 
   monetize :price_cents
 
-  scope :descending_order, ->(quantity = 10) { limit(quantity).order(created_at: :desc) }
-  scope :find_by_member, ->(member) { member.ads }
-  scope :where_category, ->(id) { where(category: id) }
+  scope :descending_order, ->(page) {
+     order(created_at: :desc).page(page).per(PER_PAGE)
+  }
+
+  scope :by_search, ->(term, page) {
+     where("lower(title) LIKE ?", "%#{term.downcase}%").page(page).per(PER_PAGE)
+  }
+
+  scope :by_category, ->(id, page) {
+   where(category: id).page(page).per(PER_PAGE)
+ }
+
+  scope :to_the, ->(member) { where(member: member) }
 
   #rake paperclip:refresh  CLASS=Ad
   has_attached_file :picture,
