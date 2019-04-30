@@ -11,6 +11,8 @@ class Ad < ApplicationRecord
   belongs_to :category, counter_cache: true
   belongs_to :member
 
+  has_many :comments
+
   validates_presence_of  :picture
 
   validates :title, :description_md, :description_short, :category, presence: true

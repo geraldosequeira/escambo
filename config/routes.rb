@@ -21,6 +21,7 @@ Rails.application.routes.draw do
 
     resources :ad_detail, only: [:show]
     resources :category, only: [:show]
+    resources :comments, only: [:create]
 
     get "search", to: "search#ads"
   end

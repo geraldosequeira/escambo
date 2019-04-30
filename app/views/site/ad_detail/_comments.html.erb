@@ -1,0 +1,49 @@
+<div class="card card-outline-secondary my-4">
+
+  <div class="card-header">
+    Reviews
+    <% if current_member %>
+      <button type="button" class="btn-sm btn-success float-right"
+              data-toggle="modal" data-target="#modalComment">
+        Deixe um comentário
+      </button>
+    <% end %>
+  </div>
+
+  <div class="card-body">
+    <% @ad.comments.each do |comment| %>
+      <small class="text-muted">
+        <span class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</span>
+        <%= comment.member.email %>
+        <span class="float-right"><%= l(comment.created_at, format: :short) %></span>
+      </small>
+      <p><%= comment.body %></p>
+      <hr>
+    <% end %>
+  </div>
+
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="modalComment" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalLabel">Deixe seu comentário</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <%= form_with url: site_comments_path, local: true do %>
+        <div class="modal-body">
+          <%= text_area :comment, :body, rows: 6, class: "form-control" %>
+          <%= hidden_field :comment, :ad_id, value: @ad.id %>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+          <%= submit_tag "Comentar", class: "btn btn-primary" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

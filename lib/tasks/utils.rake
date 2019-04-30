@@ -14,6 +14,7 @@ namespace :dev do
     puts "Deleting images olds of ADS #{%x(rm -rf #{images_path})}"
     puts "..[OK]"
     puts %x(rake dev:generate_ads)
+    puts %x(rake dev:generate_comment)
   end
 
   desc "Create admins Faker"
@@ -56,6 +57,7 @@ namespace :dev do
       %x(ruby -e "require 'doctor_ipsum'; puts DoctorIpsum::Markdown.entry ")
     end
 
+    p "Create ADS faker"
     5.times do
       Ad.create!(
           title: Faker::Lorem.sentence(1),
@@ -69,7 +71,6 @@ namespace :dev do
         )
     end
 
-    p "Create ADS faker"
       10.times do
         Ad.create!(
           title: Faker::Lorem.sentence(1),
@@ -82,6 +83,23 @@ namespace :dev do
           picture: File.new(Rails.root.join('public', 'template', 'images-for-ads', "#{Random.rand(9)}.jpg"), 'r')
         )
       end
+    p "..[OK]"
+  end
+
+  desc "Create comment Faker"
+  task generate_comment: :environment do
+    p "=" * 50
+    p "Create Comment Faker"
+
+    Ad.all.each do |ad|
+      (Random.rand(1..4)).times do
+        Comment.create!(
+          body: Faker::Lorem.paragraph([2,3,4].sample),
+          member: Member.all.sample,
+          ad: ad
+        )
+      end
+    end
     p "..[OK]"
   end
 
