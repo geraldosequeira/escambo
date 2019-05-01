@@ -6,8 +6,6 @@ class Members::SessionsController < Devise::SessionsController
 
       stored_location = stored_location_for(resource)
 
-      p ">>> #{stored_location} >>>> #{site_ad_detail_index_path}"
-
       if stored_location.match(site_ad_detail_index_path)
         stored_location
       else

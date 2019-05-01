@@ -42,21 +42,23 @@
       <%= form.text_area :description_md, class: "form-control col-md-12", rows: 10 %>
     </div>
 
-    <div class="form-group card shadow mb-6">
-      <a href="#collapseCardExample" class="d-block card-header py-3"
-         data-toggle="collapse" role="button"
-         aria-expanded="true"
-         aria-controls="collapseCardExample">
+    <% if @ad.description.present? %>
+      <div class="form-group card shadow mb-6">
+        <a href="#collapseCardExample" class="d-block card-header py-3"
+           data-toggle="collapse" role="button"
+           aria-expanded="true"
+           aria-controls="collapseCardExample">
 
-        <h8 class="m-0 font-weight-bold text-secondary text-muted">Pré-Visualização</h8>
-      </a>
-      <!-- Card Content - Collapse -->
-      <div class="collapse show" id="collapseCardExample" style="">
-        <div class="card-body">
-          <%= @ad.description.html_safe %>
+          <h8 class="m-0 font-weight-bold text-secondary text-muted">Pré-Visualização</h8>
+        </a>
+        <!-- Card Content - Collapse -->
+        <div class="collapse show" id="collapseCardExample" style="">
+          <div class="card-body">
+            <%= @ad.description.html_safe %>
+          </div>
         </div>
       </div>
-    </div>
+    <% end %>
 
     <div class="form-group">
       <%= form.label :finish_date %>

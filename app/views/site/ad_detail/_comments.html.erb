@@ -1,12 +1,14 @@
 <div class="card card-outline-secondary my-4">
 
   <div class="card-header">
-    Reviews
+    Comemtários
     <% if current_member %>
       <button type="button" class="btn-sm btn-success float-right"
               data-toggle="modal" data-target="#modalComment">
         Deixe um comentário
       </button>
+    <% else %>
+      <%= link_to "Faça o login para comentar", new_member_session_path, class: "btn-sm btn-info float-right" %>
     <% end %>
   </div>
 

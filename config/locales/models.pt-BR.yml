@@ -28,7 +28,7 @@
         updated_at: Atualizado em
         email: E-mail
         password: Senha
-        password_confirmation: Confirmação de senha
+        password_confirmation: Confirmação
       admin:
         id: Código
         created_at: Criado em
