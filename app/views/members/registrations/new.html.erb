@@ -1,1 +1,19 @@
 <%= render partial: "members/shared/form" %>
+
+<% unless resource.errors.full_messages.blank? %>
+    <% resource.errors.full_messages.each do |message| %>
+        <%= javascript_tag "$.notify(
+             {
+                message: '#{message}'
+             },
+             {
+                type: 'danger',
+                placement:{
+                  from: 'top',
+                  align: 'center'
+                }
+              }
+          );"
+        %>
+    <% end %>
+<% end %>

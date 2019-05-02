@@ -1,29 +1,17 @@
-<% if notice %>
-    <%= javascript_tag "$.notify(
+<% if flash %>
+    <% flash.each do |key, value| %>
+      <%= javascript_tag "$.notify(
            {
-              message: '#{notice}'
+              message: '#{value}'
            },
            {
-              type: 'success',
+              type: '#{key == 'notice' ? 'success' : 'danger'}',
               placement:{
                 from: 'top',
                 align: 'center'
               }
             }
-    );" %>
-<% end %>
-
-<% if alert %>
-    <%= javascript_tag "$.notify(
-           {
-              message: '#{alert}'
-           },
-           {
-              type: 'danger',
-              placement:{
-                from: 'top',
-                align: 'center'
-              }
-            }
-    );" %>
+        );"
+      %>
+    <% end %>
 <% end %>

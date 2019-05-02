@@ -39,7 +39,7 @@ class Backoffice::AdminsController < BackofficeController
   def destroy
     authorize  @admin
     if @admin.destroy
-      redirect_to backoffice_admins_path, notice: I18n.t('messages.destroyed_with', item: admin_name)
+      redirect_to backoffice_admins_path, notice: I18n.t('messages.destroyed_with', item: @admin.name)
     else
       render :index
     end
