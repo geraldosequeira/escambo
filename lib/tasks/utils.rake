@@ -39,11 +39,18 @@ namespace :dev do
     puts "Create Members Fakes..."
 
     50.times do
-      Member.create!(
+      member = Member.new(
         email: Faker::Internet.email,
         password: "teste123",
         password_confirmation: "teste123"
       )
+
+      member.build_profile_member
+
+      member.profile_member.first_name = Faker::Name.first_name
+      member.profile_member.second_name = Faker::Name.last_name
+      member.save
+
     end
 
     puts "..[OK]"
