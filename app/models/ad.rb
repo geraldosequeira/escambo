@@ -35,11 +35,21 @@ class Ad < ApplicationRecord
 
   scope :to_the, ->(member) { where(member: member) }
 
+  scope :carousel, ->(quantity) { limit(quantity).order("RANDOM()") }
+
   #rake paperclip:refresh  CLASS=Ad
   has_attached_file :picture,
-                     styles: { medium: "320x150#", thumb: "100x100>", large: "900X400>" },
+                     styles: { medium: "320x150#", thumb: "100x100>", large: "900X350#" },
                      default_url: "/images/:style/missing.png"
   validates_attachment_content_type :picture, content_type: /\Aimage\/.*\z/
+
+  def second
+    self[1]
+  end
+
+  def third
+    self[2]
+  end
 
   private
     def md_to_hml
