@@ -1,7 +1,7 @@
 
 ## EscamboApp
 
-**Note**: Acting as a facilitator in the development of the Ruby On Rails course with Faculade Fael students.
+**Note**: Acting as a facilitator in the development of the Ruby On Rails course with College Fael students.
 
 This application is based on systems of buying and selling products online.
 
